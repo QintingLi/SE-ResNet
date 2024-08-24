@@ -1,6 +1,6 @@
 # Image Classification with Enhanced ResNet Models Using SE Attention
 
-This project implements a ResNet-based image classification model enhanced with Squeeze-and-Excitation (SE) blocks to improve feature representation. The model is trained and evaluated using a dataset of animal images, leveraging Google Colab for computation and storage.
+This project features a ResNet-based image classification model enhanced with Squeeze-and-Excitation (SE) blocks to improve feature representation. The model is developed and trained using a dataset of animal images, with the computation and storage facilitated by Google Colab.
 
 ## Table of Contents
 
@@ -18,11 +18,11 @@ This project implements a ResNet-based image classification model enhanced with 
 
 ## Overview
 
-The project demonstrates the training and evaluation of a ResNet model enhanced with SE Attention. It uses a dataset containing various classes of animal images, which are preprocessed and split into training and validation sets. The model's performance is evaluated based on accuracy and confusion matrix metrics.
+This project demonstrates how to train and evaluate a ResNet model enhanced with SE Attention mechanisms. The dataset consists of various animal classes, which are preprocessed and divided into training and validation sets. The model's performance is assessed using accuracy metrics and confusion matrices.
 
 ## Requirements
 
-To run the project, you'll need the following libraries:
+To run this project, ensure you have the following libraries installed:
 
 - Python 3.x
 - Google Colab (or a similar environment with GPU support)
@@ -32,7 +32,7 @@ To run the project, you'll need the following libraries:
 - Matplotlib
 - scikit-learn
 
-You can install the necessary libraries via pip:
+Install these dependencies using pip:
 
 ```bash
 pip install torch torchvision numpy matplotlib scikit-learn
@@ -40,36 +40,36 @@ pip install torch torchvision numpy matplotlib scikit-learn
 
 ## Project Structure
 
-The main components of the project are as follows:
+The project is organized into several key components:
 
-- **Data Preparation**: Splits the dataset into training and validation sets.
-- **Model Definition**: Defines the ResNet model with SE Attention blocks.
+- **Data Preparation**: Handles the splitting of the dataset into training and validation sets.
+- **Model Definition**: Defines the ResNet model architecture, incorporating SE Attention blocks.
 - **Training Script**: Trains the model using the prepared dataset.
-- **Evaluation Script**: Evaluates the model on the validation set.
-- **Prediction Script**: Performs inference on new images.
+- **Evaluation Script**: Evaluates the model's performance on the validation set.
+- **Prediction Script**: Provides inference capabilities for new images.
 
 ## Setup
 
-1. **Mount Google Drive**: The project assumes that you're using Google Colab. Start by mounting your Google Drive to access datasets and save model weights.
+1. **Mount Google Drive**: The project assumes you're using Google Colab. Start by mounting your Google Drive to access the datasets and save model weights.
    
 2. **Prepare Dataset**:
-   - Ensure your dataset is in your Google Drive in a directory named `dataset_42028assg2_24708935`.
-   - The dataset should be unzipped and contain subdirectories for each class of animals.
+   - Place your dataset in your Google Drive.
+   - Ensure the dataset is unzipped and organized into subdirectories representing each animal class.
 
 3. **Model Files**:
-   - Download the pre-trained weights (`resnet34-pre.pth`) and `class_indices.json` from your Google Drive.
+   - Download the pre-trained weights like (`resnet34-pre.pth`) and `class_indices.json` from Google Drive to use them in training and evaluation. (just a example)
 
 ## Usage
 
 ### Data Preparation
 
-Run the following command to copy and prepare the dataset:
+First, copy the dataset from Google Drive to your Colab environment:
 
 ```python
 !cp -r /content/gdrive/MyDrive/dataset_42028assg2_24708935/ ./dataset
 ```
 
-Then, use the script to split the dataset into training and validation sets:
+Then, execute the script to split the dataset into training and validation sets:
 
 ```python
 python split_dataset.py
@@ -77,62 +77,62 @@ python split_dataset.py
 
 ### Training the Model
 
-Train the model using the `train.py` script:
+Train the model by running the `train.py` script:
 
 ```python
 python train.py
 ```
 
-This script:
+This script will:
 
-- Loads and preprocesses the dataset.
-- Defines the ResNet model with SE Attention.
-- Compiles the model and sets the optimizer and loss function.
-- Trains the model over several epochs, logging training loss and validation accuracy.
+- Load and preprocess the dataset.
+- Define the ResNet model with SE Attention.
+- Set up the optimizer and loss function.
+- Train the model over several epochs, logging training loss and validation accuracy.
 
 ### Evaluating the Model
 
-Evaluate the trained model using the validation set:
+To evaluate the model's performance, run the evaluation script:
 
 ```python
 python evaluate.py
 ```
 
-The evaluation script:
+This script:
 
 - Loads the trained model weights.
 - Computes the accuracy on the validation set.
-- Generates a confusion matrix to visualize performance.
+- Generates a confusion matrix to visualize class-specific performance.
 
 ### Prediction
 
-To make predictions on new images, use the `predict.py` script:
+For making predictions on new images, use the `predict.py` script:
 
 ```python
 python predict.py
 ```
 
-The script:
+This script will:
 
-- Loads the model and weights.
-- Preprocesses the input image.
-- Outputs the predicted class and probability.
+- Load the model and trained weights.
+- Preprocess the input image.
+- Output the predicted class and the associated probability.
 
 ### Example Commands
 
-To train the model:
+Train the model:
 
 ```bash
 python resnet_train.py
 ```
 
-To evaluate the model:
+Evaluate the model:
 
 ```bash
 python resnet_evaluate.py
 ```
 
-To perform prediction on a single image:
+Make a prediction on a single image:
 
 ```bash
 python resnet_predict.py
@@ -140,9 +140,6 @@ python resnet_predict.py
 
 ## Results
 
-- **Training Loss and Validation Accuracy**: The training script plots the loss curve and accuracy curve over the training epochs.
-- **Confusion Matrix**: The evaluation script generates a confusion matrix to visualize model performance across different classes.
+- **Training Loss and Validation Accuracy**: The training script provides plots for loss and accuracy across training epochs.
+- **Confusion Matrix**: The evaluation script generates a confusion matrix, offering a visual insight into the model's performance across different animal classes.
 
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
